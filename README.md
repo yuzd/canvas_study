@@ -118,7 +118,7 @@ _borderLine(x, y, border_x = [40, w - 40], border_y = [40, h - 40]) {
         [this.x, this.y] = [x, y];
     }
 ```
-将上面的函数放入对象内部，这样我们的一个例子就简单完成了，[效果如下]()，[代码如下]()
+将上面的函数放入对象内部，这样我们的一个例子就简单完成了，[效果如下](https://swnb.github.io/canvas_study/demo/canvas.1.2.html)，[代码如下](./canvas/canvas1.2.js)
 大家也可以使用arc函数构建圆配上不同的颜色，就可以实现下面的效果了。
 
 下一篇教大家怎么构建这个[例子]()
