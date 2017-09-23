@@ -24,12 +24,13 @@ class Parent {
         //运动方向矢量
         this.direction = Math.random() * 2 * Math.PI;
         //运动速度矢量
-        this.v = Math.random() * 1 + 1;
+        this.v_x = (Math.random() * 0.2 + 2.3) * Math.cos(this.direction);
+        this.v_y = (Math.random() * 0.2 + 2.3) * Math.sin(this.direction);
     }
     update() {
-        this.x += Math.cos(this.direction) * this.v;
-        this.y += Math.sin(this.direction) * this.v;
         this._borderLine(this.x, this.y);
+        this.x += this.v_x;
+        this.y += this.v_y;
         //开始根据位置来画动画
         this.draw();
     }
@@ -40,22 +41,24 @@ class Parent {
         ctx.rect(this.x, this.y, this.r, this.r);
         ctx.fill();
     }
-    _borderLine(x, y, border_x = [20, w - 20], border_y = [20, h - 20]) {
+    _borderLine(x, y, border_x = [40, w - 40], border_y = [40, h - 40]) {
         if (x < border_x[0] || x > border_x[1]) {
             x = Math.min(border_x[1], x);
             x = Math.max(border_x[0], x);
             //更换方向
-            this.direction = Math.PI / 2 - this.direction;
+            this.v_x = -this.v_x;
         }
         if (y < border_y[0] || y > border_y[1]) {
-            x = Math.min(border_x[1], y);
-            y = Math.max(border_x[0], y);
+            y = Math.min(border_y[1], y);
+            y = Math.max(border_y[0], y);
             //更换方向
+            this.v_y = -this.v_y;
         }
         [this.x, this.y] = [x, y];
     }
 }
 
+requestAnimationFrame();
 const a = new Parent();
 function run() {
     a.update();
