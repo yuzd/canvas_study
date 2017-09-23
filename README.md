@@ -45,6 +45,34 @@ ctx.rotate(deg)
 
 ctx.rect(x1,y1,x2,y2)
 ctx.arc(rx,ry,r,start_deg,end_deg)
-
-
 ```
+
+上面就是一些常用的api了，怎么使用它们去构建我们的动画呢？
+
+我们需要面向对象，用es6语法来构建对象，然后生成对象的属性
+我们来看具体代码
+
+```javascript
+class parent {
+    constructor() {
+        //初始化对象的位置
+        this.x = (Math.random() * 6 + 2) * x;
+        this.y = (Math.random() * 6 + 2) * y;
+        //运动方向矢量
+        this.direction = Math.random() * 2 * Math.PI;
+        //运动速度矢量
+        this.v = Math.random() * 5 + 4;
+    }
+    updated() {
+        this.x += Math.cos(this.diretion) * this.v;
+        this.y += Math.sin(this.direction) * this.v;
+        //开始根据位置来画动画
+        this.draw();
+    }
+    draw() {
+        ctx.fillStyle = 'blue';
+        ctx.Rect(this.x, this.y);
+    }
+}
+```
+解释一下，根据上面的代码，constructor函数在每次生成对象的过程中都会自动生成对象的坐标（x，y），而对于update函数，每次都会更新对象的坐标，draw函数会根据更新的坐标绘制对象，我们先来看看效果是怎么样的。
