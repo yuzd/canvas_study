@@ -4,11 +4,11 @@
 
 喜欢的请star一下，谢谢
 
-首先我们创建`<canvas></canvas>`标签，需要注意的是，width和height都是canvas的dom属性，不要在css上写
+首先我们在html里面创建`<canvas></canvas>`标签，需要注意的是，width和height都是canvas的dom属性，不要在css上写
 
 然后就是js代码
 
-获取他的dom属性，而且需要在window变化的时候变化，我们要监听事件
+获取他的dom，而且需要在window变化的时候变化，我们要监听事件，动态改变画布的大小
 
 ```javascript
 let canvas=document.querySelector('canvas')
@@ -120,8 +120,10 @@ _borderLine(x, y, border_x = [40, w - 40], border_y = [40, h - 40]) {
 ```
 将上面的函数放入对象内部，这样我们的一个例子就简单完成了，[效果如下](https://swnb.github.io/canvas_study/demo/canvas.1.2.html)，[代码如下](./canvas/canvas1.2.js)
 
-大家也可以使用arc函数构建圆配上不同的颜色，就可以实现下面的效果了,这种[效果]()了。
+大家也可以使用arc函数构建圆配上不同的颜色，就可以实现下面的[效果](https://swnb.github.io/canvas_study/demo/point.html)了。
 
 未完待续
 
 我写了一个项目，可以上传视频，在线看视频。而且大量特效都是基于svg和canvas的，所以，有兴趣的同学可以[看一下](https://github.com/swnb/video)嘛，给个star，谢谢了。
+
+后面我会介绍复杂的canvas绘制方法
