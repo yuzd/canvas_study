@@ -1,4 +1,4 @@
-# 一个canvas的入门教程
+# canvas的入门教程
 
 这是一个教大家怎么入门canvas的教程，附带一些酷炫的动画
 
@@ -56,15 +56,15 @@ ctx.arc(rx,ry,r,start_deg,end_deg)
 class parent {
     constructor() {
         //初始化对象的位置
-        this.x = (Math.random() * 6 + 2) * x;
-        this.y = (Math.random() * 6 + 2) * y;
+        this.x = (Math.random() * 0.5 + 0.1) * x;
+        this.y = (Math.random() * 0.5 + 0.1) * y;
         //运动方向矢量
         this.direction = Math.random() * 2 * Math.PI;
         //运动速度矢量
-        this.v = Math.random() * 5 + 4;
+        this.v = Math.random() * 1 + 1;
     }
     updated() {
-        this.x += Math.cos(this.diretion) * this.v;
+        this.x += Math.cos(this.direction) * this.v;
         this.y += Math.sin(this.direction) * this.v;
         //开始根据位置来画动画
         this.draw();
@@ -72,7 +72,10 @@ class parent {
     draw() {
         ctx.fillStyle = 'blue';
         ctx.Rect(this.x, this.y);
+        ctx.fill()
     }
 }
 ```
 解释一下，根据上面的代码，constructor函数在每次生成对象的过程中都会自动生成对象的坐标（x，y），而对于update函数，每次都会更新对象的坐标，draw函数会根据更新的坐标绘制对象，我们先来看看效果是怎么样的。
+全部代码在[canvas代码](./canvas/canvas1.js)
+
